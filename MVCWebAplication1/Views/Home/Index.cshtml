@@ -1,0 +1,36 @@
+﻿@ViewData["Ad"]
+
+@foreach(var item in ViewBag.liste){
+	<p>
+		@item
+	</p>
+}
+
+@{
+	SelectListItem[] liste = new SelectListItem[2]{
+		new SelectListItem() {Text="Seçenek1"},
+		new SelectListItem() {Text="Seçenek2"}
+	};
+}
+
+@using (Html.BeginForm("Index","Form")){
+	@Html.TextBox("Ad");
+	@Html.DropDownList("Kisiler", liste);
+	@("Onaylıyorum") @Html.CheckBox("Onay")
+	<input type="submit" value="Gönder" />
+}
+;
+<form action="/" method="post">
+	<h1>Form</h1>
+	<input type="text" name="Ad" placeholder="Name"/>
+	<select name="Kisiler">
+		<option value="Seçenek1">Seçenek 1</option>
+	</select>
+	Onaylıyorum: <input type="checkbox" name="Onay" value="Onaylıyorum" />
+	<input type="button" value="Gönder" />
+</form>
+
+<p>
+	@ViewBag.Name
+</p>
+

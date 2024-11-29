@@ -1,0 +1,32 @@
+﻿@model User
+
+@using (Html.BeginForm("Submit","Home",FormMethod.Post)){
+
+	<fieldset>
+		<div>
+			@Html.LabelFor(n => Model.Name);
+			@Html.TextBoxFor(n => Model.Name);
+			@Html.ValidationMessageFor(n=> n.Name)
+		</div>
+		<div>
+			@Html.LabelFor(n => Model.Age)
+			@Html.TextBoxFor(n => Model.Age);
+			@Html.ValidationMessageFor(n => n.Age) 
+		</div>
+		<div>
+			@Html.DropDownListFor(n => Model.Country , Model.CountryList,"Selecy Country")
+			@Html.ValidationMessageFor(n => Model.Country)
+		</div>
+		<div>
+			@Html.RadioButtonFor(n => Model.Gender , "Male") Male
+			@Html.RadioButtonFor(n => Model.Gender , "Famele") Famele
+			@Html.ValidationMessageFor(n => n.Gender)
+		</div>
+		<div>
+			<input type="submit" value="Sende Form" />
+		</div>
+
+	</fieldset>
+
+};
+@Html.ValidationSummary();

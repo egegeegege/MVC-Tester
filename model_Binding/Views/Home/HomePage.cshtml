@@ -1,0 +1,19 @@
+﻿@model Kisi
+
+<div>
+	<p>Ad: @Model.Ad</p>
+	<p>Soyad: @Model.Soyad</p>
+	<p>Yas: @Model.Yas</p>
+</div>
+
+<div>
+	@using (Html.BeginForm())
+	{
+		<b>Ad:</b> @Html.TextBoxFor(x => x.Ad) <br />
+		<b>Ad:</b> @Html.TextBoxFor(x => x.Soyad) <br />
+		<b>Ad:</b> @Html.TextBoxFor(x => x.Yas) <br />
+		<hr />
+
+		<input type="submit" name="Sb" value="Gönder" />
+	}
+</div>
